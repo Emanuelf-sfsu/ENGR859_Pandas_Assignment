@@ -20,6 +20,9 @@ class Parser():
         Finally, convert the data to a list and return both lists.
         """
         # Write your code below
+
+        life_sat = pd.read_csv("./Data/oecd_bli_2015.csv", usecols=['Country', 'Value'])
+        return life_sat
         
     def GDP_parse(self) -> tuple[list,list]:
         """
