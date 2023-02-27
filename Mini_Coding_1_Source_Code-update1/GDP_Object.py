@@ -20,4 +20,8 @@ class GDP_Object(Dataset):
         Hint: You can use the list.reverse method to reverse the order of a list.
         """
         # Write your code below
-        
+
+        self.data = self.country[::-1]
+        self.label = self.value[::-1]
+
+        return self

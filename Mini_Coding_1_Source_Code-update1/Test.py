@@ -71,7 +71,7 @@ class Grader(unittest.TestCase):
 
     def test_shuffle(self):
         """
-        Test shuffle function
+        Test shuffle functionsnake
         Compare the first item and the last item before reverse and after reverse.
 
         Check if shuffle both data and label

@@ -35,6 +35,7 @@ class Dataset():
         Python will automatically wrap these values in a tuple and return the tuple as a single object.
         """
         # Write your code below
+        return self.data[index], self.label[index]
         
 
         
@@ -53,7 +54,8 @@ class Dataset():
         To find the index of a specific element in a list, you can use the list.index() function.
         """
         # Write your code below
-        
+        max_index = self.label.index(max(self.label))
+        return self.get_item(max_index)
 
         
     def get_min(self) -> tuple[str,float]:
@@ -69,7 +71,8 @@ class Dataset():
         To find the maximum value in a list, you can use the min() function. 
         """
         # Write your code below
-        
+        min_index = self.label.index(min(self.label))
+        return self.get_item(min_index)
 
         
     def get_length(self) -> int:
@@ -83,8 +86,8 @@ class Dataset():
         >> 3
         """
         # Write your code below
-
-        return len(self.label)
+        length = len(self.label)
+        return length
 
         
     def get_all(self) -> list[tuple[str,float]]:
@@ -103,9 +106,10 @@ class Dataset():
             myList.append(i)
         """
         # Write your code below
-
-        return list(self)
-    
+        all_list = []
+        for i in range(self.get_length()):
+            all_list.append((self.data[i], self.label[i]))
+        return all_list
         
     def shuffle(self):
         """
@@ -124,7 +128,9 @@ class Dataset():
         You also need shuffle the label list so that the corresponding pair of data and label remains the same.
         """ 
         # Write your code below
-        return  random.shuffle(self)
+
+        random.shuffle([self.label,self.data])
+        return
 
     def reverse(self):
         print("Please Override this function in the GDP Object")
