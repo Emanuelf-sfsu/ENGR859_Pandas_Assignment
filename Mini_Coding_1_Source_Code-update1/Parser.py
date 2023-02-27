@@ -20,9 +20,11 @@ class Parser():
         Finally, convert the data to a list and return both lists.
         """
         # Write your code below
+        life_sat = pd.read_csv(self.path, usecols=['Country', 'Value'])
+        country = list(life_sat.loc[:,"Country"])
+        value = list(life_sat.loc[:,"Value"])
 
-        life_sat = pd.read_csv("./Data/oecd_bli_2015.csv", usecols=['Country', 'Value'])
-        return life_sat
+        return country,value
         
     def GDP_parse(self) -> tuple[list,list]:
         """

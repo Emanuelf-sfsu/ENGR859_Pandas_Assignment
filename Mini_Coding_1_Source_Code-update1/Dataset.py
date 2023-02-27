@@ -84,6 +84,8 @@ class Dataset():
         """
         # Write your code below
 
+        return len(self.label)
+
         
     def get_all(self) -> list[tuple[str,float]]:
         """
@@ -101,6 +103,8 @@ class Dataset():
             myList.append(i)
         """
         # Write your code below
+
+        return list(self)
     
         
     def shuffle(self):
@@ -120,9 +124,11 @@ class Dataset():
         You also need shuffle the label list so that the corresponding pair of data and label remains the same.
         """ 
         # Write your code below
+        return  random.shuffle(self)
 
     def reverse(self):
         print("Please Override this function in the GDP Object")
+
         
     def train_val_split(self,radio:float,data_type:str) -> tuple[list,list]:
         """

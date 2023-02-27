@@ -8,4 +8,4 @@ life_sat = pd.read_csv("./Data/oecd_bli_2015.csv", usecols=['Country','Value'])
 # life_sat = pd.read_csv("oecd_bli_2015.csv", usecols=['Value'])
 
 # print(life_sat_country.values)
-print(life_sat.values)
+print(life_sat.values,life_sat.loc)
