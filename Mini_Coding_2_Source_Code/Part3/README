@@ -1,0 +1,5 @@
+Part 3 of the homework
+This part of the homework provides a sample code that uses MLP to classify the MNIST dataset. However, it only uses 2 layers of MLP. You will need to modify the code and use 3 layers of MLP. Additionally, you will need to use MLP to classify the Fashion MNIST Dataset.
+Hint: you can use 
+fashion_mnist = tf.keras.datasets.fashion_mnist
+to import Fashion MNIST dataset.

@@ -1,0 +1,10 @@
+You will need to:
+1.	Complete the merge function in the GDP_Object file.
+2.	Complete the functions in the Main file.
+3.	After finishing all the functions, run the test file.
+To receive full credit, there should be no errors when running the test file.
+NOTE: The sample code uses Root-mean-square deviation(RMSD) to measure the accuracy of the model,
+the lower the RMSD, the higher the accuracy.
+Hint: 
+Check out this website:
+https://data36.com/polynomial-regression-python-scikit-learn/

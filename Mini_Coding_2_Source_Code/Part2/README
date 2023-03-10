@@ -1,0 +1,8 @@
+You will need to read and understand Chapter 10 of the book. You can find the code for chapter 10 here: 
+https://github.com/ageron/handson-ml3/blob/main/10_neural_nets_with_keras.ipynb.
+You will need to reorganize the code into the following 4 parts.
+1.	Prepare the Dataset
+2.	Setting Hyperparameters and defining model
+3.	Start Training
+4.	Start Testing
+You will need to put the code that is already being organized into one Python file, and the file should print out the final testing accuracy.
