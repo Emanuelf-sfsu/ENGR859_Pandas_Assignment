@@ -50,3 +50,10 @@ class GDP_Object(Dataset):
         """ 
     def merge(self,data:Dataset) -> tuple[list,list]:
         # write your code below
+        df = pd.DataFrame(self.label,self.data)
+        df = df.dropna()
+
+        df2 = pd.DataFrame(data.label,data.data)
+        df2 = df.dropna()
+
+        return df,df2
