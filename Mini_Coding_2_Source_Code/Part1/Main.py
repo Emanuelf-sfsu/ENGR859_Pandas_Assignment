@@ -9,6 +9,8 @@ from Lifesat_Object import Lifesat_Object
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_squared_error
 from sklearn.preprocessing import PolynomialFeatures
+from sklearn.linear_model import LinearRegression
+
 
 
 class Main():
@@ -44,20 +46,27 @@ class Main():
 
         # convert training_data and training_label to numpy array
         # Write your code below
-        training_data = np.array([training_data])
-        training_label = np.array([training_label])
+        training_data = np.array(training_data)
+        training_data = training_data.reshape(-1,training_data.shape[-1])
+        training_label = np.array(training_label)
+        training_label = training_label.reshape(-1,training_label.shape[-1])
 
-        # training_data and training_label are 1D numpy array, 
+
+
+        # training_data and training_label are 1D numpy array,
         # you will need to use numpy.expand_dims to expand them to 2D numpy array
         # because linear regression model only accept 2D numpy array as input
         # Write your code below
-        training_data = np.expand_dims(training_data, axis=(2,0))
-        training_label = np.expand_dims(training_label, axis=(2,0))
+        # training_data = np.expand_dims(training_data,axis=0)
+        # training_label = np.expand_dims(training_label,axis=0)
 
 
         # Generated polynomial features from the training_data
         # Complete the code below
-        poly_features = training_data
+        poly = PolynomialFeatures(degree=2,include_bias=False)
+        poly_features = poly.fit_transform(training_data.reshape(-1, 1))
+
+
 
         if raw_data:
             return training_data,training_label
@@ -75,17 +84,31 @@ class Main():
     def training(self) -> None:
         # train linear regression model
         #Write your code below
+        lr = LinearRegression()
+        lr.fit(self.training_label,self.training_data)
 
+        x_val = np.array(self.training_label).reshape(-1,1)
+        y_val = lr.predict(self.training_label)
+
+
+
+        plt.scatter(self.training_label,self.training_data)
+
+        plt.plot(x_val,y_val, color = 'r')
+        plt.show()
+
+        x = lr.predict(self.training_label)
         # train linear regression model with polynomial features
         #Write your code below
-        return
+        return self.training_label
 
     def validation(self) -> tuple[float,float]:
         # Test linear regression model
         #Write your code below
-
+        linear_regression_predict =  LinearRegression().predict(self.training_label)
         #Test linear regression model with polynomial features
         #Write your code below
+        polynomial_predict = self.polynomial_model
 
         linear_regression_rmse = np.sqrt(mean_squared_error(self.test_label, linear_regression_predict))
         polynomial_rmse = np.sqrt(mean_squared_error(self.poly_test_label, polynomial_predict))

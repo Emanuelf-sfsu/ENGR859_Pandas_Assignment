@@ -53,7 +53,8 @@ class GDP_Object(Dataset):
         df = pd.DataFrame(self.label,self.data)
         df = df.dropna()
 
-        df2 = pd.DataFrame(data.label,data.data)
+        df2 = pd.DataFrame(data.label)
         df2 = df.dropna()
+
 
         return df,df2
